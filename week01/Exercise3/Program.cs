@@ -26,7 +26,7 @@ while (guess != magicNumber)
     }
     else
     {
-        Console.WriteLine(" You guessed it!");
+        Console.WriteLine(" You Guessed It!");
     }
 }
     }

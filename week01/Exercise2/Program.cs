@@ -39,7 +39,7 @@ if (percent >= 70)
 }
 else
 {
-    Console.WriteLine("Good luck next time!");
+    Console.WriteLine("Good Luck Next Time!");
 }
     }
 }
