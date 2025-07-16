@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 class Me
 {
@@ -25,9 +26,19 @@ class Me
         KdramasList.Add(k2);
         KdramasList.Add(k3);
 
-        foreach (Kdramas k in KdramasList)
+        
+    }
+
+    public static void SaveToFile(List<Kdramas> kdramasList)
+    {
+        string filename = "kdramas.txt";
+        using (StreamWriter outpuFile = new StreamWriter(filename))
         {
-            Console.WriteLine(k._name);
+            foreach (Kdramas k in kdramasList)
+            {
+                outpuFile.WriteLine($"{k._name}|{k._about}|{k._score}");
+            }
         }
+
     }
 }
