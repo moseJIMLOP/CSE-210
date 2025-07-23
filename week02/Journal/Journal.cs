@@ -24,9 +24,7 @@ public class Journal
         {
             foreach (Entry entry in _entries)
             {
-                outputfile.WriteLine($"{entry._date} -Prompt: {entry._promptText}");
-                outputfile.WriteLine(entry._entryText);
-                outputfile.WriteLine();
+                outputfile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
             }
         }
     }

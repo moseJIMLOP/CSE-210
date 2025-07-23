@@ -15,10 +15,10 @@ public class PromptGenerator
         };
     }
 
+    private Random _random = new Random();
     public string GetRandomPrompt()
     {
-        Random random = new Random();
-        int index = random.Next(_prompts.Count);
+        int index = _random.Next(_prompts.Count);
         return _prompts[index];
     }   
 }

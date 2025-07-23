@@ -25,7 +25,6 @@ class Program
             {
                 string prompt = promptGenerator.GetRandomPrompt();
                 Console.WriteLine($"{prompt}");
-                string entryText = Console.ReadLine();
                 string response = Console.ReadLine();
 
                 Entry newEntry = new Entry();
