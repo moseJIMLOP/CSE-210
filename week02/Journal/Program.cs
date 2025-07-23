@@ -13,13 +13,22 @@ class Program
         while (choice != 5)
         {
             Console.WriteLine("Welcome to the Journal Program ✨😊!");
-            Console.WriteLine("Please select one the following choice:");
+            Console.WriteLine("Please select one the following choices:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
-            choice = int.Parse(Console.ReadLine());
+
+
+            string input = Console.ReadLine();
+            bool success = int.TryParse(input, out choice); 
+            
+            if (!success)
+            {
+                Console.WriteLine("Please enter a number.");
+                continue;
+            }
 
             if (choice == 1)
             {
@@ -53,7 +62,7 @@ class Program
             }
             else if (choice == 5)
             {
-                Console.WriteLine("God job today!");
+                Console.WriteLine("Good job today!");
             }
             else
             {

@@ -13,6 +13,12 @@ public class Journal
     }
     public void DisplayAll()
     {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No entries to display.");
+            return;
+        }
+        
         foreach (Entry entry in _entries)
         {
             entry.Display();
@@ -30,6 +36,11 @@ public class Journal
     }
     public void LoadFromFile(string file)
     {
+        if (!File.Exists(file))
+        {
+            Console.WriteLine("File not found.");
+            return;
+        }
         _entries.Clear();
 
         string[] lines = File.ReadAllLines(file);
@@ -46,5 +57,6 @@ public class Journal
                 _entries.Add(entry);
             }
         }
+        Console.WriteLine($"Loaded {_entries.Count} entries from \"{file}\".");
     }
 }
