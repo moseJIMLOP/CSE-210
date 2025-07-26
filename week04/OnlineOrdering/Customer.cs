@@ -18,7 +18,14 @@ public class Customer
     }
     public bool IsInUSA()
     {
-        return _address.Is.InUSA();
+        return _address.IsInUSA();
     }
-    
+    public double GetShippingCost()
+    {
+        return _address.IsInUSA() ? 5.0 : 35.0;
+    }
+    public string GetFormattedAddress()
+    {
+        return _address.GetFormattedAddress();
+    }
 }

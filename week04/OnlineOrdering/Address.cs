@@ -16,8 +16,8 @@ public class Address
     {
         return _country.ToUpper() == "USA";
     }
-    public string GetFullAddress()
+    public string GetFormattedAddress()
     {
-        return $"{_street}, {_city}, {_state_province}, {_country}";
+        return $"{_street}\n{_city}, {_state_province}\n{_country}";
     }
 }
