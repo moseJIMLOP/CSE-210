@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the Mindfulness Project.");
-          int choice = 0;
+        int choice = 0;
         while (choice != 4)
         {
             Console.Clear();
