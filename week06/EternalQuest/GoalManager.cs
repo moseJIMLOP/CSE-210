@@ -19,7 +19,7 @@ public class GoalManager
 
     public void DisplayGoals()
     {
-        Console.WriteLine("Your Goals:");
+        Console.WriteLine("\nYour Goals:");
         for (int i = 0; i < _goals.Count; i++)
         {
             Console.Write($"{i + 1}. ");
@@ -45,7 +45,7 @@ public class GoalManager
         }
         else
         {
-            Console.WriteLine("No points earned for this event.");
+            Console.WriteLine("No points earned.");
         }
 
         Console.WriteLine($"Total points: {_totalPoints}");
@@ -54,5 +54,15 @@ public class GoalManager
     public void DisplayTotalPoints()
     {
         Console.WriteLine($"Total points: {_totalPoints}");
+    }
+
+    public void SaveGoals()
+    {
+        Console.WriteLine("Saving goals... (not implemented)");
+    }
+
+    public void LoadGoals()
+    {
+        Console.WriteLine("Loading goals... (not implemented)");
     }
 }

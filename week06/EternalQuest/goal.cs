@@ -1,4 +1,6 @@
-public class Goal
+using System;
+
+public abstract class Goal
 {
     private string _name;
     private string _description;
@@ -15,13 +17,9 @@ public class Goal
     public string Description => _description;
     public int Points => _points;
 
-    public virtual int RecordEvent()
-    {
-        return 0;
-    }
-
+    public abstract int RecordEvent();
     public virtual void DisplayGoal()
     {
-        Console.WriteLine($"{Name} - {Description} (Points: {Points})");
+        Console.WriteLine($"{_name} - {_description} (Points: {_points})");
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
@@ -6,11 +8,6 @@ public class SimpleGoal : Goal
         : base(name, description, points)
     {
         _isComplete = false;
-    }
-
-    public bool IsComplete()
-    {
-        return _isComplete;
     }
 
     public override int RecordEvent()
@@ -31,7 +28,7 @@ public class SimpleGoal : Goal
     public override void DisplayGoal()
     {
         string status = _isComplete ? "[X]" : "[ ]";
-        Console.WriteLine($"{status} {Name} - {Description} (Points: {Points})");
+        Console.Write($"{status} ");
+        base.DisplayGoal();
     }
 }
-

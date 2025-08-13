@@ -10,12 +10,13 @@ class Program
         while (!exit)
         {
             Console.WriteLine("\n--- Goal Tracker Menu ---");
-            Console.WriteLine("1. Create new goal");
-            Console.WriteLine("2. Display goals");
-            Console.WriteLine("3. Record event");
-            Console.WriteLine("4. Display total points");
-            Console.WriteLine("5. Exit");
-            Console.Write("Select an option (1-5): ");
+            Console.WriteLine("1. Create New Goal");
+            Console.WriteLine("2. List Goals");
+            Console.WriteLine("3. Save Goals");
+            Console.WriteLine("4. Load Goals");
+            Console.WriteLine("5. Record Event");
+            Console.WriteLine("6. Quit");
+            Console.Write("Select a choice from the menu: ");
 
             string input = Console.ReadLine();
 
@@ -28,14 +29,17 @@ class Program
                     manager.DisplayGoals();
                     break;
                 case "3":
-                    RecordGoalEvent(manager);
+                    manager.SaveGoals();
                     break;
                 case "4":
-                    manager.DisplayTotalPoints();
+                    manager.LoadGoals();
                     break;
                 case "5":
-                    exit = true;
+                    RecordGoalEvent(manager);
+                    break;
+                case "6":
                     Console.WriteLine("Goodbye!");
+                    exit = true;
                     break;
                 default:
                     Console.WriteLine("Invalid option. Try again.");
@@ -46,20 +50,20 @@ class Program
 
     static void CreateGoal(GoalManager manager)
     {
-        Console.WriteLine("\nSelect goal type:");
+        Console.WriteLine("\nThe types of goals are:");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
-        Console.Write("Choice (1-3): ");
+        Console.Write("Which type of goal would you like to create? ");
         string choice = Console.ReadLine();
 
-        Console.Write("Enter goal name: ");
+        Console.Write("What is the name of your goal? ");
         string name = Console.ReadLine();
 
-        Console.Write("Enter goal description: ");
+        Console.Write("Enter a description for this goal: ");
         string description = Console.ReadLine();
 
-        Console.Write("Enter points for this goal: ");
+        Console.Write("What is the amount of points associated with this goal: ");
         int points = int.Parse(Console.ReadLine());
 
         switch (choice)

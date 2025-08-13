@@ -1,3 +1,5 @@
+using System;
+
 public class ChecklistGoal : Goal
 {
     private int _timesCompleted;
@@ -7,44 +9,34 @@ public class ChecklistGoal : Goal
     public ChecklistGoal(string name, string description, int points, int targetCount, int bonusPoints)
         : base(name, description, points)
     {
+        _timesCompleted = 0;
         _targetCount = targetCount;
         _bonusPoints = bonusPoints;
-        _timesCompleted = 0;
-    }
-
-    public bool IsComplete()
-    {
-        return _timesCompleted >= _targetCount;
     }
 
     public override int RecordEvent()
     {
-        if (!IsComplete())
+        _timesCompleted++;
+        if (_timesCompleted < _targetCount)
         {
-            _timesCompleted++;
-            Console.WriteLine($"Progress for '{Name}': {_timesCompleted}/{_targetCount}.");
-
-            if (IsComplete())
-            {
-                Console.WriteLine($"Checklist goal '{Name}' completed! You earned {Points + _bonusPoints} points.");
-                return Points + _bonusPoints;
-            }
-            else
-            {
-                Console.WriteLine($"You earned {Points} points.");
-                return Points;
-            }
+            Console.WriteLine($"Progress: {_timesCompleted}/{_targetCount}. You earned {Points} points.");
+            return Points;
+        }
+        else if (_timesCompleted == _targetCount)
+        {
+            Console.WriteLine($"Goal completed! You earned {Points + _bonusPoints} points (including bonus).");
+            return Points + _bonusPoints;
         }
         else
         {
-            Console.WriteLine($"Goal '{Name}' is already completed.");
+            Console.WriteLine($"Goal already completed. No extra points.");
             return 0;
         }
     }
 
     public override void DisplayGoal()
     {
-        string status = IsComplete() ? "[X]" : "[ ]";
-        Console.WriteLine($"{status} {Name} - {Description} (Points: {Points}, Bonus: {_bonusPoints}, Progress: {_timesCompleted}/{_targetCount})");
+        string status = _timesCompleted >= _targetCount ? "[X]" : "[ ]";
+        Console.WriteLine($"{status} {Name} - {Description} (Points: {Points}) - Completed {_timesCompleted}/{_targetCount} times");
     }
 }
