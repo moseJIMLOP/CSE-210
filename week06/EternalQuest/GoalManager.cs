@@ -36,19 +36,21 @@ public class GoalManager
         }
 
         Goal goal = _goals[goalIndex - 1];
-
         int pointsEarned = goal.RecordEvent();
 
         if (pointsEarned > 0)
         {
             _totalPoints += pointsEarned;
-            Console.WriteLine($"Total points: {_totalPoints}");
+            Console.WriteLine($"You earned {pointsEarned} points!");
         }
         else
         {
             Console.WriteLine("No points earned for this event.");
         }
+
+        Console.WriteLine($"Total points: {_totalPoints}");
     }
+
     public void DisplayTotalPoints()
     {
         Console.WriteLine($"Total points: {_totalPoints}");

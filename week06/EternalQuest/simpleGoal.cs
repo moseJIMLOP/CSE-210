@@ -8,6 +8,11 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
+    public bool IsComplete()
+    {
+        return _isComplete;
+    }
+
     public override int RecordEvent()
     {
         if (!_isComplete)
@@ -25,7 +30,8 @@ public class SimpleGoal : Goal
 
     public override void DisplayGoal()
     {
-        string status = _isComplete ? "[x]" : "[ ]";
+        string status = _isComplete ? "[X]" : "[ ]";
         Console.WriteLine($"{status} {Name} - {Description} (Points: {Points})");
     }
 }
+

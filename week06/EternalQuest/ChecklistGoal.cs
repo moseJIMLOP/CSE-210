@@ -1,8 +1,8 @@
 public class ChecklistGoal : Goal
 {
-    private int _timesCompleted;     
-    private int _targetCount;        
-    private int _bonusPoints;        
+    private int _timesCompleted;
+    private int _targetCount;
+    private int _bonusPoints;
 
     public ChecklistGoal(string name, string description, int points, int targetCount, int bonusPoints)
         : base(name, description, points)
@@ -12,14 +12,19 @@ public class ChecklistGoal : Goal
         _timesCompleted = 0;
     }
 
+    public bool IsComplete()
+    {
+        return _timesCompleted >= _targetCount;
+    }
+
     public override int RecordEvent()
     {
-        if (_timesCompleted < _targetCount)
+        if (!IsComplete())
         {
             _timesCompleted++;
             Console.WriteLine($"Progress for '{Name}': {_timesCompleted}/{_targetCount}.");
 
-            if (_timesCompleted == _targetCount)
+            if (IsComplete())
             {
                 Console.WriteLine($"Checklist goal '{Name}' completed! You earned {Points + _bonusPoints} points.");
                 return Points + _bonusPoints;
@@ -39,7 +44,7 @@ public class ChecklistGoal : Goal
 
     public override void DisplayGoal()
     {
-        string status = _timesCompleted >= _targetCount ? "[X]" : "[ ]";
+        string status = IsComplete() ? "[X]" : "[ ]";
         Console.WriteLine($"{status} {Name} - {Description} (Points: {Points}, Bonus: {_bonusPoints}, Progress: {_timesCompleted}/{_targetCount})");
     }
 }
