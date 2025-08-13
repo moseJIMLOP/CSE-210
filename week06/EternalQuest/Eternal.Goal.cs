@@ -8,12 +8,12 @@ public class EternalGoal : Goal
         _timesRecorded = 0;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        _timesRecorded++;
-        Console.WriteLine($"Goal '{Name}' recorded! Total times recorded: {_timesRecorded}. You earned {Points} points.");
+    _timesRecorded++;
+    Console.WriteLine($"Goal '{Name}' recorded! Total times recorded: {_timesRecorded}. You earned {Points} points.");
+    return Points;
     }
-
     public override void DisplayGoal()
     {
         Console.WriteLine($"{Name} - {Description} (Points: {Points}) - Times Recorded: {_timesRecorded}");
