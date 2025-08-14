@@ -8,6 +8,10 @@ public class Video
     private int _length;
     private List<Comment> _comments = new List<Comment>();
 
+    public int GetNumberOfComments()
+    {
+        return _comments.Count;
+    }
     public void AddComment(Comment comment)
     {
         _comments.Add(comment);
